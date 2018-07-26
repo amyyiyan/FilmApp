@@ -15,13 +15,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBAction func cameraUpload(_ sender: Any) {
         let image = UIImagePickerController()
         image.delegate = self
-        
         image.sourceType = UIImagePickerControllerSourceType.camera
         image.allowsEditing = false
-        
         self.present(image, animated: true) {
-            
-            
         }
     }
     
