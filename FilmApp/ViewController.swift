@@ -12,6 +12,7 @@ import UIKit
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var cameraView: UIImageView!
+    
     @IBAction func cameraUpload(_ sender: Any) {
         let image = UIImagePickerController()
         image.delegate = self
