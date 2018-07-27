@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="ImageWithAtributes" representedClassName="ImageWithAtributes" syncable="YES" codeGenerationType="class">
+    <entity name="ImageWithAttributes" representedClassName=".ImageWithAttributes" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ImageWithAtributes" positionX="-54" positionY="9" width="128" height="75"/>
+        <element name="ImageWithAttributes" positionX="-54" positionY="9" width="128" height="75"/>
     </elements>
 </model>

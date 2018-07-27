@@ -11,20 +11,35 @@ import UIKit
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    var newImage: UIImage!
     @IBOutlet weak var cameraView: UIImageView!
     
     @IBAction func cameraUpload(_ sender: Any) {
-        let image = UIImagePickerController()
-        image.delegate = self
-        image.sourceType = UIImagePickerControllerSourceType.camera
-        image.allowsEditing = false
-        self.present(image, animated: true) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+        imagePicker.allowsEditing = false
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    @IBAction func savebutton(_ sender: Any) {
+        CoreDataHelper.saveImage()
+        self.performSegue(withIdentifier: "saveSegue", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "saveSegue" {
+           let destinationVC = segue.destination as! PhotoGalleryCollectionViewController
         }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             cameraView.image = image
+            let newImageObject = CoreDataHelper.newImage()
+            let imageData = UIImagePNGRepresentation(image)
+            newImageObject.image = imageData
+            CoreDataHelper.saveImage()
         }
         else  {
             //error

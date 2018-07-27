@@ -20,9 +20,8 @@ struct CoreDataHelper {
         return context
     }()
 
-
-    static func newImage() -> ImageWithAtributes {
-        let freshImage = NSEntityDescription.insertNewObject(forEntityName: "Image", into: context) as! ImageWithAtributes
+    static func newImage() -> ImageWithAttributes {
+        let freshImage = NSEntityDescription.insertNewObject(forEntityName: "ImageWithAttributes", into: context) as! ImageWithAttributes
     
         return freshImage
     }
@@ -35,21 +34,18 @@ struct CoreDataHelper {
         }
     }
 
-    static func delete(freshImage: ImageWithAtributes) {
+    static func delete(freshImage: ImageWithAttributes) {
         context.delete(freshImage)
-        
         saveImage()
     }
     
-    static func retrieveImage() -> [ImageWithAtributes] {
+    static func retrieveImage() -> [ImageWithAttributes] {
         do {
-            let fetchRequest = NSFetchRequest<ImageWithAtributes>(entityName: "Image")
+            let fetchRequest = NSFetchRequest<ImageWithAttributes>(entityName: "ImageWithAttributes")
             let results = try context.fetch(fetchRequest)
-            
             return results
         } catch let error {
             print("Could not fetch \(error.localizedDescription)")
-            
             return []
         }
     }
