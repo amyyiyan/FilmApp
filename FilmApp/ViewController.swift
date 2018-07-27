@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     var newImage: UIImage!
