@@ -17,7 +17,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.camera
-        imagePicker.allowsEditing = false
+        imagePicker.allowsEditing = true
         self.present(imagePicker, animated: true, completion: nil)
     }
     
@@ -36,14 +36,31 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             cameraView.image = image
             let newImageObject = CoreDataHelper.newImage()
-            let imageData = UIImagePNGRepresentation(image)
-            newImageObject.image = imageData
-            CoreDataHelper.saveImage()
+//            let imageData = UIImagePNGRepresentation(image)
+            let fixedOrientation = fixOrientation(img: image)
+            newImageObject.image = fixedOrientation.png
+            newImageObject.date = Date()
+//            CoreDataHelper.saveImage()
+            print(newImageObject.image)
+            print(newImageObject.date)
         }
         else  {
             //error
         }
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    private func fixOrientation(img: UIImage) -> UIImage {
+        if (img.imageOrientation == UIImageOrientation.up) { return img }
+        
+        UIGraphicsBeginImageContextWithOptions(img.size, false, img.scale)
+        let rect = CGRect(x: 0, y: 0, width: img.size.width, height: img.size.height)
+        img.draw(in: rect)
+        
+        let normalizedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return normalizedImage
     }
     
     override func viewDidLoad() {
@@ -56,4 +73,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
 
 }
 
-
+extension UIImage {
+    var jpeg: Data? {
+        return UIImageJPEGRepresentation(self, 1)   // QUALITY min = 0 / max = 1
+    }
+    var png: Data? {
+        return UIImagePNGRepresentation(self)
+    }
+}

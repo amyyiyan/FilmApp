@@ -33,9 +33,26 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
-        cell.imageview.image = UIImage(data: imageObjects[indexPath.row].image!)
-//        cell.labelview.text = formatter.string(from: imageObjects[indexPath.row].date!)
+        let imageObject = imageObjects[indexPath.item]
+        
+        if let photo = imageObject.image {
+            cell.imageview.image = UIImage(data: photo)
+        }
+        cell.labelview.text = imageObject.date?.convertToString()
+//        cell.labelview.text = String(imageObject.date)
+
+//        cell.imageview.image = UIImage(data: imageObjects[indexPath.row].image!)
+//        cell.labelview.text = formatter.string(from: imageObject.date!)
         
         return cell
     }
 }
+
+extension Date {
+    func convertToString() -> String {
+        return DateFormatter.localizedString(from: self, dateStyle: DateFormatter.Style.medium, timeStyle: DateFormatter.Style.none)
+    }
+}
+
+
+
