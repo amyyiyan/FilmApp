@@ -69,7 +69,7 @@ extension Date {
 extension PhotoGalleryCollectionViewController : CollectionViewCellDelegate {
     func delete(indexPath: IndexPath) {
         imageObjects.remove(at: indexPath.row)
-        // CoreDataHelper.delete(freshImage: imageObjects[indexPath.item])
+        //CoreDataHelper.delete(freshImage: imageObjects[indexPath.item])
         collectionView.reloadData()
     }
 }
