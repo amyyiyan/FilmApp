@@ -10,6 +10,8 @@ import UIKit
 
 class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    var lastImageSelected: UIImage?
+
     @IBOutlet weak var collectionView: UICollectionView!
     
     let formatter = DateFormatter()
@@ -53,12 +55,24 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        lastImageSelected = UIImage(data: imageObjects[indexPath.item].image!)
+        performSegue(withIdentifier: "enlargedImageSegue" , sender: self)
+    }
+    
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         editModeOn = !editModeOn
         collectionView.reloadData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+        if identifier == "enlargedImageSegue" {
+            let destination = segue.destination as! EnlargedImageViewController
+            destination.image = lastImageSelected
+        }
+    }
 }
 
 extension Date {
