@@ -19,9 +19,12 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
         }
     }
     
+    var editModeOn: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.rightBarButtonItem = editButtonItem
         imageObjects = CoreDataHelper.retrieveImage()
         
         
@@ -44,8 +47,17 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
 //        cell.imageview.image = UIImage(data: imageObjects[indexPath.row].image!)
 //        cell.labelview.text = formatter.string(from: imageObject.date!)
         
+        cell.delegate = self
+        cell.indexPath = indexPath
         return cell
     }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        editModeOn = !editModeOn
+        collectionView.reloadData()
+    }
+    
 }
 
 extension Date {
@@ -54,5 +66,12 @@ extension Date {
     }
 }
 
+extension PhotoGalleryCollectionViewController : CollectionViewCellDelegate {
+    func delete(indexPath: IndexPath) {
+        imageObjects.remove(at: indexPath.row)
+        // CoreDataHelper.delete(freshImage: imageObjects[indexPath.item])
+        collectionView.reloadData()
+    }
+}
 
 
