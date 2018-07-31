@@ -30,12 +30,13 @@ struct CoreDataHelper {
         do {
             try context.save()
         } catch let error {
-            print ("Could not save \(error.localizedDescription)")
+            print("Could not save \(error.localizedDescription)")
         }
     }
 
     static func delete(freshImage: ImageWithAttributes) {
         context.delete(freshImage)
+        print("deleted image")
         saveImage()
     }
     

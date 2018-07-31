@@ -41,12 +41,13 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
         if let photo = imageObject.image {
             cell.imageview.image = UIImage(data: photo)
         }
-        cell.labelview.text = imageObject.date?.convertToString()
+        
 //        cell.labelview.text = String(imageObject.date)
-
 //        cell.imageview.image = UIImage(data: imageObjects[indexPath.row].image!)
 //        cell.labelview.text = formatter.string(from: imageObject.date!)
         
+        cell.isEditing = self.editModeOn
+        cell.labelview.text = imageObject.date?.convertToString()
         cell.delegate = self
         cell.indexPath = indexPath
         return cell
@@ -68,9 +69,11 @@ extension Date {
 
 extension PhotoGalleryCollectionViewController : CollectionViewCellDelegate {
     func delete(indexPath: IndexPath) {
+        CoreDataHelper.delete(freshImage: imageObjects[indexPath.item])
         imageObjects.remove(at: indexPath.row)
-        //CoreDataHelper.delete(freshImage: imageObjects[indexPath.item])
+        print("Pressed delete")
         collectionView.reloadData()
+        CoreDataHelper.saveImage()
     }
 }
 

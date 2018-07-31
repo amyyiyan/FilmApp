@@ -41,7 +41,7 @@ class CollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func deleteButtonDidTap(_ sender: Any) {
-        print("pressed delete button")
+        print("tapped delete x")
         delegate?.delete(indexPath: indexPath!)
     }
 }
