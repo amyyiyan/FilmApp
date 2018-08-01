@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class EnlargedImageViewController: UIViewController {
     
@@ -18,7 +19,7 @@ class EnlargedImageViewController: UIViewController {
         super.viewDidLoad()
         enlargedimageView.image = image
     }
-   
+    
     @IBAction func savePhotoButton(_ sender: Any) {
         let imageData = UIImagePNGRepresentation(enlargedimageView.image!)
         let compressedImage = UIImage(data: imageData!)
@@ -32,4 +33,5 @@ class EnlargedImageViewController: UIViewController {
     @IBAction func deletePhotoButton(_ sender: Any) {
         
     }
+
 }

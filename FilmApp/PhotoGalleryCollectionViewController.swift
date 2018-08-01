@@ -72,6 +72,7 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
             destination.image = lastImageSelected
         }
     }
+    
 }
 
 extension Date {
