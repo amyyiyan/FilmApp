@@ -12,12 +12,15 @@ import Foundation
 class EnlargedImageViewController: UIViewController {
     
     var image : UIImage!
+    var date : Date!
     
     @IBOutlet weak var enlargedimageView: UIImageView!
     
+    @IBOutlet weak var datelabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         enlargedimageView.image = image
+        datelabel.text = date.convertToFullString()
     }
     
     @IBAction func savePhotoButton(_ sender: Any) {
@@ -35,3 +38,4 @@ class EnlargedImageViewController: UIViewController {
     }
 
 }
+

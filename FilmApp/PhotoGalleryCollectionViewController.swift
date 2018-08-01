@@ -11,6 +11,7 @@ import UIKit
 class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var lastImageSelected: UIImage?
+    var lastDateSelected: Date?
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -56,6 +57,7 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         lastImageSelected = UIImage(data: imageObjects[indexPath.item].image!)
+        lastDateSelected = imageObjects[indexPath.item].date
         performSegue(withIdentifier: "enlargedImageSegue" , sender: self)
     }
     
@@ -70,6 +72,8 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
         if identifier == "enlargedImageSegue" {
             let destination = segue.destination as! EnlargedImageViewController
             destination.image = lastImageSelected
+            destination.date = lastDateSelected
+            
         }
     }
     
@@ -78,6 +82,12 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
 extension Date {
     func convertToString() -> String {
         return DateFormatter.localizedString(from: self, dateStyle: DateFormatter.Style.medium, timeStyle: DateFormatter.Style.none)
+    }
+    
+    func convertToFullString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-dd-yyyy' 'HH:mm:ss"
+        return formatter.string(from: self)
     }
 }
 
