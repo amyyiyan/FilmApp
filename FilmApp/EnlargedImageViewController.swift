@@ -18,4 +18,18 @@ class EnlargedImageViewController: UIViewController {
         super.viewDidLoad()
         enlargedimageView.image = image
     }
+   
+    @IBAction func savePhotoButton(_ sender: Any) {
+        let imageData = UIImagePNGRepresentation(enlargedimageView.image!)
+        let compressedImage = UIImage(data: imageData!)
+        UIImageWriteToSavedPhotosAlbum(compressedImage!, nil, nil, nil)
+        
+        let alert = UIAlertController(title: "Saved", message: "Your photo has been saved.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    @IBAction func deletePhotoButton(_ sender: Any) {
+        
+    }
 }

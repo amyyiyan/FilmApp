@@ -29,7 +29,6 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
         navigationItem.rightBarButtonItem = editButtonItem
         imageObjects = CoreDataHelper.retrieveImage()
         
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

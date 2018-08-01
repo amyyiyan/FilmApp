@@ -27,7 +27,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Your photos are safe.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Ima steal all your images</string>
+	<string>This allows you to save your photos to camera roll.</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
