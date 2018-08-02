@@ -28,8 +28,20 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
         super.viewDidLoad()
         
         navigationItem.rightBarButtonItem = editButtonItem
-        imageObjects = CoreDataHelper.retrieveImage()
         
+    }
+    
+//    override func viewDidDisappear(_ animated: Bool) {
+//        super.viewDidDisappear(animated)
+//
+//        collectionView.reloadData()
+//    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        imageObjects = CoreDataHelper.retrieveImage()
+        collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -52,13 +64,18 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
         cell.labelview.text = imageObject.date?.convertToString()
         cell.delegate = self
         cell.indexPath = indexPath
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        lastImageSelected = UIImage(data: imageObjects[indexPath.item].image!)
+        print("Hello")
+        guard let imageObj = imageObjects[indexPath.item].image else { return }
+        lastImageSelected = UIImage(data: imageObj)
+//        lastImageSelected = UIImage(data: imageObjects[indexPath.item].image!)
         lastDateSelected = imageObjects[indexPath.item].date
-        performSegue(withIdentifier: "enlargedImageSegue" , sender: self)
+        print("HELLO")
+        performSegue(withIdentifier: "enlargedImageSegue" , sender: indexPath)
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -70,9 +87,14 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else { return }
         if identifier == "enlargedImageSegue" {
+            
+            guard let indexPath = sender as? IndexPath else { return }
+            let imageObject = imageObjects[indexPath.item]
+            
             let destination = segue.destination as! EnlargedImageViewController
             destination.image = lastImageSelected
             destination.date = lastDateSelected
+            destination.imageAttribute = imageObject
             
         }
     }
