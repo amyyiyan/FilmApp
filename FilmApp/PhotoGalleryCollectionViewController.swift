@@ -11,6 +11,7 @@ import UIKit
 class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var lastImageSelected: UIImage?
+    var lastDateSelected: Date?
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -26,9 +27,18 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
         navigationItem.rightBarButtonItem = editButtonItem
         imageObjects = CoreDataHelper.retrieveImage()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        imageObjects = CoreDataHelper.retrieveImage()
+        collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -56,7 +66,10 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         lastImageSelected = UIImage(data: imageObjects[indexPath.item].image!)
-        performSegue(withIdentifier: "enlargedImageSegue" , sender: self)
+        guard let imageObj = imageObjects[indexPath.item].image else {return}
+        lastImageSelected = UIImage(data: imageObj)
+        lastDateSelected = imageObjects[indexPath.item].date
+        performSegue(withIdentifier: "enlargedImageSegue" , sender: indexPath)
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -68,8 +81,12 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else { return }
         if identifier == "enlargedImageSegue" {
+            guard let indexPath = sender as? IndexPath else {return}
+            let imageObject = imageObjects[indexPath.item]
             let destination = segue.destination as! EnlargedImageViewController
             destination.image = lastImageSelected
+            destination.date = lastDateSelected
+            destination.imageAttribute = imageObject
         }
     }
 }
@@ -77,6 +94,12 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
 extension Date {
     func convertToString() -> String {
         return DateFormatter.localizedString(from: self, dateStyle: DateFormatter.Style.medium, timeStyle: DateFormatter.Style.none)
+    }
+    
+    func convertToFullString() -> String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "MM-dd-yyyy' 'HH:mm:ss"
+    return formatter.string(from: self)
     }
 }
 

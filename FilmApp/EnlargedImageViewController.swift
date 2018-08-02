@@ -11,12 +11,17 @@ import UIKit
 class EnlargedImageViewController: UIViewController {
     
     var image : UIImage!
+    var date : Date!
+    var imageAttribute: ImageWithAttributes?
     
     @IBOutlet weak var enlargedimageView: UIImageView!
+    @IBOutlet weak var datelabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("God HELP ME \(imageAttribute)")
         enlargedimageView.image = image
+        datelabel.text = date.convertToFullString()
     }
    
     @IBAction func savePhotoButton(_ sender: Any) {
@@ -29,7 +34,16 @@ class EnlargedImageViewController: UIViewController {
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
+    
     @IBAction func deletePhotoButton(_ sender: Any) {
+        enlargedimageView.image = nil
+        guard let imageAttr = imageAttribute else {
+            return assertionFailure("Failed to get image")
+        }
         
+        CoreDataHelper.delete(freshImage: imageAttr)
+        CoreDataHelper.saveImage()
+        
+        print("Delete")
     }
 }
