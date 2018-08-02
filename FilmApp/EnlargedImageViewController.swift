@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class EnlargedImageViewController: UIViewController {
     
@@ -19,11 +20,11 @@ class EnlargedImageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("God HELP ME \(imageAttribute)")
+        print("\(imageAttribute)")
         enlargedimageView.image = image
         datelabel.text = date.convertToFullString()
     }
-   
+    
     @IBAction func savePhotoButton(_ sender: Any) {
         let imageData = UIImagePNGRepresentation(enlargedimageView.image!)
         let compressedImage = UIImage(data: imageData!)
@@ -40,10 +41,12 @@ class EnlargedImageViewController: UIViewController {
         guard let imageAttr = imageAttribute else {
             return assertionFailure("Failed to get image")
         }
-        
+
         CoreDataHelper.delete(freshImage: imageAttr)
         CoreDataHelper.saveImage()
         
-        print("Delete")
+        print("deleted image from core data")
     }
+
 }
+

@@ -193,7 +193,7 @@
                         <viewLayoutGuide key="safeArea" id="SuB-lv-aPp"/>
                     </view>
                     <connections>
-                        <outlet property="datelabel" destination="DqS-GD-XW5" id="hHU-7A-RzX"/>
+                        <outlet property="datelabel" destination="DqS-GD-XW5" id="CwF-XN-AOW"/>
                         <outlet property="enlargedimageView" destination="Kxb-co-D0d" id="WZI-af-hRU"/>
                     </connections>
                 </viewController>
