@@ -20,7 +20,7 @@ class EnlargedImageViewController: UIViewController {
     @IBOutlet weak var datelabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("God HELP ME \(imageAttribute)")
+        print("\(imageAttribute)")
         enlargedimageView.image = image
         datelabel.text = date.convertToFullString()
     }
@@ -45,7 +45,7 @@ class EnlargedImageViewController: UIViewController {
         CoreDataHelper.delete(freshImage: imageAttr)
         CoreDataHelper.saveImage()
         
-        print("Delete")
+        print("deleted image from core data")
     }
 
 }

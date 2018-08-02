@@ -69,12 +69,10 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Hello")
         guard let imageObj = imageObjects[indexPath.item].image else { return }
         lastImageSelected = UIImage(data: imageObj)
 //        lastImageSelected = UIImage(data: imageObjects[indexPath.item].image!)
         lastDateSelected = imageObjects[indexPath.item].date
-        print("HELLO")
         performSegue(withIdentifier: "enlargedImageSegue" , sender: indexPath)
     }
     

@@ -14,14 +14,12 @@ protocol CollectionViewCellDelegate: class {
     
 }
 
-
 class CollectionViewCell: UICollectionViewCell {
     
     var indexPath: IndexPath?
     
     @IBOutlet weak var imageview: UIImageView!
     @IBOutlet weak var labelview: UILabel!
-    
     @IBOutlet weak var deleteButtonBackgroundView: UIVisualEffectView!
     
     weak var delegate: CollectionViewCellDelegate?
