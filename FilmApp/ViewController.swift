@@ -40,6 +40,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             let fixedOrientation = fixOrientation(img: image)
             newImageObject.image = fixedOrientation.png
             newImageObject.date = Date()
+//            cameraView.image = UIImage(data: newImageObject.image!)
+            
 //            CoreDataHelper.saveImage()
             print(newImageObject.image)
             print(newImageObject.date)

@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,16 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sog-sY-fuc">
-                                <rect key="frame" x="71" y="112" width="232" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Camera"/>
-                                <connections>
-                                    <action selector="cameraUpload:" destination="BG7-BA-r8I" eventType="touchUpInside" id="iCx-5b-3gA"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BIJ-Dy-Y7w">
-                                <rect key="frame" x="67" y="184" width="240" height="298"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BIJ-Dy-Y7w">
+                                <rect key="frame" x="67" y="184" width="240" height="314"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHn-zE-cuf">
@@ -37,6 +28,14 @@
                                 <state key="normal" title="To Library"/>
                                 <connections>
                                     <action selector="savebutton:" destination="BG7-BA-r8I" eventType="touchUpInside" id="xJ7-RI-va7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sog-sY-fuc">
+                                <rect key="frame" x="71" y="130" width="232" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Camera"/>
+                                <connections>
+                                    <action selector="cameraUpload:" destination="BG7-BA-r8I" eventType="touchUpInside" id="iCx-5b-3gA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -65,24 +64,25 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5TN-5b-KBl">
-                                    <size key="itemSize" width="154" height="128"/>
+                                    <size key="itemSize" width="153" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="17" minY="34" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="22" minY="34" maxX="22" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewCell" id="6Oz-uG-lIP" customClass="CollectionViewCell" customModule="FilmApp" customModuleProvider="target">
-                                        <rect key="frame" x="17" y="34" width="154" height="128"/>
+                                        <rect key="frame" x="22" y="34" width="153" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="154" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="153" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RPz-Et-tIH">
-                                                    <rect key="frame" x="0.0" y="0.0" width="171" height="100"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RPz-Et-tIH">
+                                                    <rect key="frame" x="0.0" y="0.0" width="153" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="129-vd-AGL">
-                                                    <rect key="frame" x="0.0" y="107" width="154" height="21"/>
+                                                    <rect key="frame" x="-1" y="107" width="154" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="154" id="HGh-PY-QPZ"/>
                                                     </constraints>
@@ -117,14 +117,10 @@
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="bottomMargin" secondItem="RPz-Et-tIH" secondAttribute="bottom" constant="20" id="4F1-wp-jHe"/>
                                             <constraint firstItem="R7U-Ad-Tef" firstAttribute="leading" secondItem="6Oz-uG-lIP" secondAttribute="leading" constant="8" id="DDl-wn-rAC"/>
                                             <constraint firstItem="R7U-Ad-Tef" firstAttribute="top" secondItem="6Oz-uG-lIP" secondAttribute="top" constant="8" id="O4q-Wi-n3v"/>
-                                            <constraint firstItem="RPz-Et-tIH" firstAttribute="top" secondItem="6Oz-uG-lIP" secondAttribute="top" id="cex-SG-Hef"/>
                                             <constraint firstAttribute="bottom" secondItem="129-vd-AGL" secondAttribute="bottom" id="dCt-Qa-0x2"/>
                                             <constraint firstAttribute="trailing" secondItem="129-vd-AGL" secondAttribute="trailing" id="fI1-Zm-gir"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="RPz-Et-tIH" secondAttribute="trailing" constant="-25" id="lro-sa-Qi1"/>
-                                            <constraint firstItem="RPz-Et-tIH" firstAttribute="leading" secondItem="129-vd-AGL" secondAttribute="leading" id="qAI-HF-xP4"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="deleteButtonBackgroundView" destination="R7U-Ad-Tef" id="lkz-QK-zsk"/>

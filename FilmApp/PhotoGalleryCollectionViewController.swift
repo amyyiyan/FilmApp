@@ -60,7 +60,6 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
         if let photo = imageObject.image {
             cell.imageview.image = UIImage(data: photo)
         }
-        
 //        cell.labelview.text = String(imageObject.date)
 //        cell.imageview.image = UIImage(data: imageObjects[indexPath.row].image!)
 //        cell.labelview.text = formatter.string(from: imageObject.date!)
