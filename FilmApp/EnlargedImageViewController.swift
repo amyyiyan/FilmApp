@@ -30,7 +30,7 @@ class EnlargedImageViewController: UIViewController {
         let compressedImage = UIImage(data: imageData!)
         UIImageWriteToSavedPhotosAlbum(compressedImage!, nil, nil, nil)
         
-        let alert = UIAlertController(title: "Saved", message: "Your photo has been saved.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Saved", message: "Your photo has been saved to your camera roll.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)

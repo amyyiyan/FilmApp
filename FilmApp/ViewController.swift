@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreImage
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
@@ -34,17 +35,37 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            cameraView.image = image
+//            cameraView.image = image
             let newImageObject = CoreDataHelper.newImage()
 //            let imageData = UIImagePNGRepresentation(image)
-            let fixedOrientation = fixOrientation(img: image)
-            newImageObject.image = fixedOrientation.png
+            let uiImageFixedOrientation = fixOrientation(img: image)
+            let fixedOrientation = CIImage(image: uiImageFixedOrientation)
+            
+            guard let sepiaFilter = CIFilter(name:"CISepiaTone",
+                                             withInputParameters:
+                [
+                    kCIInputImageKey: fixedOrientation,
+                    kCIInputIntensityKey: 0.5
+                ]) else {
+                    return
+            }
+            guard let sepiaCIImage = sepiaFilter.outputImage else {
+                return
+            }
+            
+            
+            
+            
+            let outputImage = UIImage(ciImage: sepiaCIImage)
+            
+            newImageObject.image = sepiaCIImage.png(size: uiImageFixedOrientation.size)
             newImageObject.date = Date()
 //            cameraView.image = UIImage(data: newImageObject.image!)
             
-//            CoreDataHelper.saveImage()
+            CoreDataHelper.saveImage()
             print(newImageObject.image)
             print(newImageObject.date)
+            cameraView.image = outputImage
         }
         else  {
             //error
@@ -81,5 +102,14 @@ extension UIImage {
     }
     var png: Data? {
         return UIImagePNGRepresentation(self)
+    }
+}
+
+extension CIImage {
+    func png(size: CGSize) -> Data? {
+        UIGraphicsBeginImageContext(size)
+        defer { UIGraphicsEndImageContext() }
+        UIImage(ciImage: self).draw(in: CGRect(origin: .zero, size: size))
+        return UIGraphicsGetImageFromCurrentImageContext()?.png
     }
 }
