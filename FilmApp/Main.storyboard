@@ -18,11 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BIJ-Dy-Y7w">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BIJ-Dy-Y7w">
                                 <rect key="frame" x="67" y="184" width="240" height="314"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHn-zE-cuf">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHn-zE-cuf">
                                 <rect key="frame" x="67" y="506" width="232" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="To Library">
                                     <color key="titleColor" red="0.98823529409999999" green="0.6705882353" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -30,8 +32,9 @@
                                     <action selector="savebutton:" destination="BG7-BA-r8I" eventType="touchUpInside" id="xJ7-RI-va7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sog-sY-fuc">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sog-sY-fuc">
                                 <rect key="frame" x="71" y="130" width="232" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Camera">
                                     <color key="titleColor" red="0.98823529409999999" green="0.6705882353" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -42,14 +45,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Sog-sY-fuc" firstAttribute="centerY" secondItem="2Dj-tN-qSU" secondAttribute="centerY" id="MdP-Ew-i9p"/>
-                            <constraint firstItem="BIJ-Dy-Y7w" firstAttribute="centerY" secondItem="2Dj-tN-qSU" secondAttribute="centerY" id="PVY-qS-6n9"/>
-                            <constraint firstItem="BIJ-Dy-Y7w" firstAttribute="centerX" secondItem="2Dj-tN-qSU" secondAttribute="centerX" id="RuW-Ew-iyA"/>
-                            <constraint firstItem="rHn-zE-cuf" firstAttribute="centerY" secondItem="2Dj-tN-qSU" secondAttribute="centerY" id="VFV-B5-PEs"/>
-                            <constraint firstItem="rHn-zE-cuf" firstAttribute="centerX" secondItem="2Dj-tN-qSU" secondAttribute="centerX" id="tNA-7y-Cr8"/>
-                            <constraint firstItem="Sog-sY-fuc" firstAttribute="centerX" secondItem="2Dj-tN-qSU" secondAttribute="centerX" id="u1i-4T-mLu"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2Dj-tN-qSU"/>
                     </view>
                     <navigationItem key="navigationItem" id="hq7-S0-fn9"/>

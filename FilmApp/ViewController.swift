@@ -156,7 +156,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
 //            }
         
 //          newImageObject.image = sepiaCIImage.png(size: uiImageFixedOrientation.size)
-            newImageObject.image = speckledImage.png(size: uiImageFixedOrientation.size)
+            newImageObject.image = finalImage.png(size: uiImageFixedOrientation.size)
             newImageObject.date = Date()
 //          cameraView.image = UIImage(data: newImageObject.image!)
             

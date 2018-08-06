@@ -48,7 +48,7 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
 
         
         imageObjects = CoreDataHelper.retrieveImage()
-//        collectionView.reloadData()
+        collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
