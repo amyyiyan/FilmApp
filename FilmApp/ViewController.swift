@@ -29,7 +29,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "saveSegue" {
+        CoreDataHelper.saveImage()
            let destinationVC = segue.destination as! PhotoGalleryCollectionViewController
+            print("I am amazing!")
         }
     }
     
@@ -41,6 +43,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             let uiImageFixedOrientation = fixOrientation(img: image)
             let fixedOrientation = CIImage(image: uiImageFixedOrientation)
             
+            //Create sephia filter
             guard let sepiaFilter = CIFilter(name:"CISepiaTone",
                                              withInputParameters:
                 [
@@ -49,25 +52,122 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                 ]) else {
                     return
             }
+            
             guard let sepiaCIImage = sepiaFilter.outputImage else {
                 return
             }
             
+            guard
+                let coloredNoise = CIFilter(name: "CIRandomGenerator"),
+                let noiseImage = coloredNoise.outputImage else {
+                    return
+            }
+            
+            // Create a whitening filter using CI Vectors
+            let whitenVector = CIVector(x: 0, y: 1, z: 0, w: 0)
+            let fineGrain = CIVector(x:0, y:0.005, z:0, w:0)
+            let zeroVector = CIVector(x: 0, y: 0, z: 0, w: 0)
+            guard let whiteningFilter = CIFilter(name:"CIColorMatrix",
+                                               withInputParameters:
+                    [
+                        kCIInputImageKey: noiseImage,
+                        "inputRVector": whitenVector,
+                        "inputGVector": whitenVector,
+                        "inputBVector": whitenVector,
+                        "inputAVector": fineGrain,
+                        "inputBiasVector": zeroVector
+                    ]),
+                    let whiteSpecks = whiteningFilter.outputImage else {
+                        return
+            }
+            
+            guard
+                let speckCompositor = CIFilter(name:"CISourceOverCompositing",
+                                               withInputParameters:
+                    [
+                        kCIInputImageKey: whiteSpecks,
+                        kCIInputBackgroundImageKey: sepiaCIImage
+                    ]),
+                    let speckledImage = speckCompositor.outputImage else {
+                        return
+            }
+            
+            //simulate scratch by scaling randomly varying noise
+            let verticalScale = CGAffineTransform(scaleX: 1.5, y: 25)
+            let transformedNoise = noiseImage.transformed(by: verticalScale)
+            
+            let darkenVector = CIVector(x: 4, y: 0, z: 0, w: 0)
+            let darkenBias = CIVector(x: 0, y: 1, z: 1, w: 1)
+            
+            guard
+                let darkeningFilter = CIFilter(name:"CIColorMatrix",
+                                               withInputParameters:
+                    [
+                        kCIInputImageKey: transformedNoise,
+                        "inputRVector": darkenVector,
+                        "inputGVector": zeroVector,
+                        "inputBVector": zeroVector,
+                        "inputAVector": zeroVector,
+                        "inputBiasVector": darkenBias
+                    ]),
+                let randomScratches = darkeningFilter.outputImage
+                else {
+                    return
+            }
+            
+            guard
+                let grayscaleFilter = CIFilter(name:"CIMinimumComponent",
+                                               withInputParameters:
+                    [
+                        kCIInputImageKey: randomScratches
+                    ]),
+                let darkScratches = grayscaleFilter.outputImage
+                else {
+                    return
+            }
+            
+            guard
+                let oldFilmCompositor = CIFilter(name:"CIMultiplyCompositing",
+                                                 withInputParameters:
+                    [
+                        kCIInputImageKey: darkScratches,
+                        kCIInputBackgroundImageKey: speckledImage
+                    ]),
+                let oldFilmImage = oldFilmCompositor.outputImage
+                else {
+                    return
+            }
+            
+            let finalImage = oldFilmImage.cropped(to: (fixedOrientation?.extent)!)
+
+
             
             
             
-            let outputImage = UIImage(ciImage: sepiaCIImage)
             
-            newImageObject.image = sepiaCIImage.png(size: uiImageFixedOrientation.size)
+            
+            
+//            let outputImage = UIImage(ciImage: sepiaCIImage)
+            let outputImage = UIImage(ciImage: finalImage)
+//            let outputImage = UIImage(ciImage: speckledImage)
+//            guard
+//            let outputImage = UIImage(data: speckledImage.png(size: uiImageFixedOrientation.size)!) else {
+//                    return
+//            }
+        
+//          newImageObject.image = sepiaCIImage.png(size: uiImageFixedOrientation.size)
+            newImageObject.image = speckledImage.png(size: uiImageFixedOrientation.size)
             newImageObject.date = Date()
-//            cameraView.image = UIImage(data: newImageObject.image!)
+//          cameraView.image = UIImage(data: newImageObject.image!)
             
-            CoreDataHelper.saveImage()
+//            CoreDataHelper.saveImage()
             print(newImageObject.image)
             print(newImageObject.date)
+            
+            print("Output Image: \(outputImage)")
             cameraView.image = outputImage
-        }
-        else  {
+            CoreDataHelper.saveImage()
+        } else  {
             //error
         }
         self.dismiss(animated: true, completion: nil)
@@ -93,6 +193,12 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    func convert(image:CIImage) -> UIImage
+    {
+        let image:UIImage = UIImage.init(ciImage: image)
+        return image
+    }
 
 }
 
@@ -112,4 +218,6 @@ extension CIImage {
         UIImage(ciImage: self).draw(in: CGRect(origin: .zero, size: size))
         return UIGraphicsGetImageFromCurrentImageContext()?.png
     }
+    
+
 }

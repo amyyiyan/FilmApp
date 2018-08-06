@@ -70,11 +70,11 @@
 				E15FE6F2210A73AC00098133 /* CollectionViewCell.swift */,
 				E15FE6F0210A72B800098133 /* PhotoGalleryCollectionViewController.swift */,
 				E17D0F462111207D007B0BBC /* EnlargedImageViewController.swift */,
-				E13B1EC22107CD5D00A2C55B /* Assets.xcassets */,
 				E13B1EC42107CD5D00A2C55B /* LaunchScreen.storyboard */,
-				E13B1EC72107CD5D00A2C55B /* Info.plist */,
 				E172CE422113B35500AF7C37 /* Main.storyboard */,
+				E13B1EC72107CD5D00A2C55B /* Info.plist */,
 				E13B1EBF2107CD5900A2C55B /* FilmApp.xcdatamodeld */,
+				E13B1EC22107CD5D00A2C55B /* Assets.xcassets */,
 			);
 			path = FilmApp;
 			sourceTree = "<group>";

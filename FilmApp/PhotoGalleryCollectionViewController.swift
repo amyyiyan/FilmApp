@@ -18,7 +18,9 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
     let formatter = DateFormatter()
     var imageObjects: [ImageWithAttributes] = [] {
         didSet {
-            collectionView.reloadData()
+//            collectionView.reloadData()
+            let indexPaths = collectionView.indexPathsForVisibleItems
+            collectionView.reloadItems(at: indexPaths)
         }
     }
     
@@ -46,7 +48,7 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
 
         
         imageObjects = CoreDataHelper.retrieveImage()
-        collectionView.reloadData()
+//        collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

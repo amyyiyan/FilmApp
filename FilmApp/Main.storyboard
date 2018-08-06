@@ -18,28 +18,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BIJ-Dy-Y7w">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BIJ-Dy-Y7w">
                                 <rect key="frame" x="67" y="184" width="240" height="314"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHn-zE-cuf">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHn-zE-cuf">
                                 <rect key="frame" x="67" y="506" width="232" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="To Library"/>
+                                <state key="normal" title="To Library">
+                                    <color key="titleColor" red="0.98823529409999999" green="0.6705882353" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="savebutton:" destination="BG7-BA-r8I" eventType="touchUpInside" id="xJ7-RI-va7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sog-sY-fuc">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sog-sY-fuc">
                                 <rect key="frame" x="71" y="130" width="232" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Camera"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Camera">
+                                    <color key="titleColor" red="0.98823529409999999" green="0.6705882353" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="cameraUpload:" destination="BG7-BA-r8I" eventType="touchUpInside" id="iCx-5b-3gA"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Sog-sY-fuc" firstAttribute="centerY" secondItem="2Dj-tN-qSU" secondAttribute="centerY" id="MdP-Ew-i9p"/>
+                            <constraint firstItem="BIJ-Dy-Y7w" firstAttribute="centerY" secondItem="2Dj-tN-qSU" secondAttribute="centerY" id="PVY-qS-6n9"/>
+                            <constraint firstItem="BIJ-Dy-Y7w" firstAttribute="centerX" secondItem="2Dj-tN-qSU" secondAttribute="centerX" id="RuW-Ew-iyA"/>
+                            <constraint firstItem="rHn-zE-cuf" firstAttribute="centerY" secondItem="2Dj-tN-qSU" secondAttribute="centerY" id="VFV-B5-PEs"/>
+                            <constraint firstItem="rHn-zE-cuf" firstAttribute="centerX" secondItem="2Dj-tN-qSU" secondAttribute="centerX" id="tNA-7y-Cr8"/>
+                            <constraint firstItem="Sog-sY-fuc" firstAttribute="centerX" secondItem="2Dj-tN-qSU" secondAttribute="centerX" id="u1i-4T-mLu"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2Dj-tN-qSU"/>
                     </view>
                     <navigationItem key="navigationItem" id="hq7-S0-fn9"/>
@@ -132,6 +142,7 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.98823529409999999" green="0.6705882353" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="I0q-k3-3cd" firstAttribute="bottom" secondItem="EUM-b2-QAe" secondAttribute="bottom" id="1Qe-tj-s19"/>
                             <constraint firstItem="I0q-k3-3cd" firstAttribute="trailing" secondItem="EUM-b2-QAe" secondAttribute="trailing" id="AJd-Tn-FMP"/>
@@ -164,7 +175,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qiQ-DP-1rk">
                                 <rect key="frame" x="280" y="593" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="0.98823529409999999" green="0.6705882353" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="savePhotoButton:" destination="B9p-qs-ISR" eventType="touchUpInside" id="N9o-rY-h6R"/>
                                 </connections>
@@ -172,7 +185,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1Q-Xb-uCh">
                                 <rect key="frame" x="51" y="593" width="45" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Delete"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" red="0.98823529409999999" green="0.6705882353" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="deletePhotoButton:" destination="B9p-qs-ISR" eventType="touchUpInside" id="IcZ-0w-xR2"/>
                                 </connections>
@@ -202,7 +217,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="k10-vf-cQA" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="u3e-o2-JL2">
+                    <navigationBar key="navigationBar" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="u3e-o2-JL2">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -216,4 +231,5 @@
             <point key="canvasLocation" x="213.59999999999999" y="-90.404797601199405"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.98823529409999999" green="0.6705882353" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
