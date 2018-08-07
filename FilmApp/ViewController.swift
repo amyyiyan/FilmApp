@@ -139,16 +139,21 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             }
             
             let finalImage = oldFilmImage.cropped(to: (fixedOrientation?.extent)!)
-
-
             
+            //board stuff
+            let frames: [UIImage] = [#imageLiteral(resourceName: "border-1"), #imageLiteral(resourceName: "border-2"), #imageLiteral(resourceName: "border-3"), #imageLiteral(resourceName: "border-4"), #imageLiteral(resourceName: "border-5"), #imageLiteral(resourceName: "border-6"), #imageLiteral(resourceName: "border-7"), #imageLiteral(resourceName: "border-8"), #imageLiteral(resourceName: "border-9"), #imageLiteral(resourceName: "border-10")]
+            let randomInt = Int(arc4random_uniform(UInt32(frames.count)))
+            let randomlyPickedFrame = frames[randomInt]
             
+            guard let borderedCIImage = CIImage(image: randomlyPickedFrame) else {
+                return
+            }
             
-            
+            let borderedImage = borderedCIImage.composited(over: finalImage)
             
             
 //            let outputImage = UIImage(ciImage: sepiaCIImage)
-            let outputImage = UIImage(ciImage: finalImage)
+            let outputImage = UIImage(ciImage: borderedImage)
 //            let outputImage = UIImage(ciImage: speckledImage)
 //            guard
 //            let outputImage = UIImage(data: speckledImage.png(size: uiImageFixedOrientation.size)!) else {
@@ -219,5 +224,4 @@ extension CIImage {
         return UIGraphicsGetImageFromCurrentImageContext()?.png
     }
     
-
 }
