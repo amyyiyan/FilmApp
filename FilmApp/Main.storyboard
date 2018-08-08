@@ -19,12 +19,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="0bq-vH-5J8">
-                                <rect key="frame" x="71" y="130" width="240" height="417"/>
+                                <rect key="frame" x="71" y="130" width="240" height="430"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sog-sY-fuc">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="29"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <state key="normal" title="Camera">
                                             <color key="titleColor" red="0.98823529409999999" green="0.6705882353" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -33,10 +33,11 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BIJ-Dy-Y7w">
-                                        <rect key="frame" x="0.0" y="51" width="240" height="314"/>
+                                        <rect key="frame" x="0.0" y="58" width="240" height="314"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHn-zE-cuf">
-                                        <rect key="frame" x="0.0" y="387" width="240" height="30"/>
+                                        <rect key="frame" x="0.0" y="394" width="240" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <state key="normal" title="To Library">
                                             <color key="titleColor" red="0.98823529409999999" green="0.6705882353" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -47,7 +48,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.99133156850239612" blue="0.90474291472378621" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="2Dj-tN-qSU"/>
                     </view>
                     <navigationItem key="navigationItem" id="hq7-S0-fn9"/>
@@ -139,7 +140,7 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.99607843139999996" green="1" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.98823529409999999" green="0.6705882353" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="I0q-k3-3cd" firstAttribute="bottom" secondItem="EUM-b2-QAe" secondAttribute="bottom" id="1Qe-tj-s19"/>
@@ -167,23 +168,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="equalCentering" alignment="center" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="Chi-RB-l98">
-                                <rect key="frame" x="0.0" y="90" width="375" height="544.5"/>
+                                <rect key="frame" x="0.0" y="90" width="377" height="555"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqS-GD-XW5">
-                                        <rect key="frame" x="166.5" y="0.0" width="42" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="162.5" y="0.0" width="52" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kxb-co-D0d">
-                                        <rect key="frame" x="0.0" y="61.5" width="375" height="417"/>
+                                        <rect key="frame" x="0.0" y="66" width="377" height="417"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleAspectFit" ambiguous="YES" spacing="188" translatesAutoresizingMaskIntoConstraints="NO" id="LpI-Qs-8xl">
-                                        <rect key="frame" x="54" y="514.5" width="267" height="30"/>
+                                        <rect key="frame" x="40" y="519" width="297" height="36"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1Q-Xb-uCh">
-                                                <rect key="frame" x="0.0" y="0.0" width="45" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="62" height="36"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <state key="normal" title="Delete">
                                                     <color key="titleColor" red="0.98823529409999999" green="0.6705882353" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -192,7 +194,8 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qiQ-DP-1rk">
-                                                <rect key="frame" x="233" y="0.0" width="34" height="30"/>
+                                                <rect key="frame" x="250" y="0.0" width="47" height="36"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <state key="normal" title="Save">
                                                     <color key="titleColor" red="0.98823529409999999" green="0.6705882353" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -205,7 +208,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.99607843139999996" green="1" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="SuB-lv-aPp"/>
                     </view>
                     <connections>

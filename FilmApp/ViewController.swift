@@ -161,7 +161,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
 //                    return
 //            }
         
-            let imageData = finalImage.png(size: uiImageFixedOrientation.size)!
+            let imageData = borderedImage.png(size: uiImageFixedOrientation.size)!
             newImageObject.image = UIImage(data: imageData)!
             newImageObject.date = Date()
             
