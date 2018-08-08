@@ -146,7 +146,7 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.98823529409999999" green="0.76201087344132623" blue="0.36118142306577827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" red="0.98823529409999999" green="0.6705882353" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="I0q-k3-3cd" firstAttribute="bottom" secondItem="EUM-b2-QAe" secondAttribute="bottom" id="1Qe-tj-s19"/>
                             <constraint firstItem="I0q-k3-3cd" firstAttribute="trailing" secondItem="EUM-b2-QAe" secondAttribute="trailing" id="AJd-Tn-FMP"/>

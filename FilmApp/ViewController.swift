@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreImage
+import AVFoundation
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
@@ -141,7 +142,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             let finalImage = oldFilmImage.cropped(to: (fixedOrientation?.extent)!)
             
             //border stuff
-            let frames: [UIImage] = [#imageLiteral(resourceName: "border-1"), #imageLiteral(resourceName: "border-2"), #imageLiteral(resourceName: "border-3"), #imageLiteral(resourceName: "border-4"), #imageLiteral(resourceName: "border-5"), #imageLiteral(resourceName: "border-6"), #imageLiteral(resourceName: "border-7"), #imageLiteral(resourceName: "border-8"), #imageLiteral(resourceName: "border-9"), #imageLiteral(resourceName: "border-10")]
+            let frames: [UIImage] = [ #imageLiteral(resourceName: "border-2"), #imageLiteral(resourceName: "border-3"), #imageLiteral(resourceName: "border-4"), #imageLiteral(resourceName: "border-5"), #imageLiteral(resourceName: "border-6"), #imageLiteral(resourceName: "border-7"), #imageLiteral(resourceName: "border-8"), #imageLiteral(resourceName: "border-9"), #imageLiteral(resourceName: "border-10")]
             let randomInt = Int(arc4random_uniform(UInt32(frames.count)))
             let randomlyPickedFrame = frames[randomInt]
             
@@ -152,7 +153,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             let borderedImage = borderedCIImage.composited(over: finalImage)
             let outputImage = UIImage(ciImage: borderedImage)
             
-            
+            //let rect = AVMakeRectWithAspectRatioInsideRect(image.size, imageView.bounds)
+
             
             
 
