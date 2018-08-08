@@ -18,7 +18,7 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
     let formatter = DateFormatter()
     var imageObjects: [ImageWithAttributes] = [] {
         didSet {
-//            collectionView.reloadData()
+            collectionView.reloadData()
             let indexPaths = collectionView.indexPathsForVisibleItems
             collectionView.reloadItems(at: indexPaths)
         }
@@ -48,7 +48,7 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
 
         
         imageObjects = CoreDataHelper.retrieveImage()
-        collectionView.reloadData()
+//        collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -59,9 +59,9 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
         let imageObject = imageObjects[indexPath.item]
         
-        if let photo = imageObject.image {
-            cell.imageview.image = UIImage(data: photo)
-        }
+        
+        cell.imageview.image = imageObject.image
+        
 //        cell.labelview.text = String(imageObject.date)
 //        cell.imageview.image = UIImage(data: imageObjects[indexPath.row].image!)
 //        cell.labelview.text = formatter.string(from: imageObject.date!)
@@ -76,8 +76,8 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-        guard let imageObj = imageObjects[indexPath.item].image else { return }
-        lastImageSelected = UIImage(data: imageObj)
+        let imageObj = imageObjects[indexPath.item].image
+        lastImageSelected = imageObj
 //      lastImageSelected = UIImage(data: imageObjects[indexPath.item].image!)
         lastDateSelected = imageObjects[indexPath.item].date
         performSegue(withIdentifier: "enlargedImageSegue" , sender: indexPath)
