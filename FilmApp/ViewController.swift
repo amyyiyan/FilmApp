@@ -150,9 +150,27 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             }
     
             let borderedImage = borderedCIImage.composited(over: finalImage)
-            
             let outputImage = UIImage(ciImage: borderedImage)
+            
+            
+            
+            
 
+//            let image = CIImage(contentsOfURL: self.URL)
+//
+//            let filter = CIFilter(name: "CILanczosScaleTransform")!
+//            filter.setValue(image, forKey: "inputImage")
+//            filter.setValue(0.5, forKey: "inputScale")
+//            filter.setValue(1.0, forKey: "inputAspectRatio")
+//            let outputImage = filter.value(forKey: "outputImage") as! CIImage
+//
+//            let context = CIContext(options: [kCIContextUseSoftwareRenderer: false])
+//            let scaledImage = UIImage(CGImage: self.context.createCGImage(outputImage, fromRect: outputImage.extent()))
+            
+            
+            
+            
+            
             
 //            let outputImage = UIImage(ciImage: sepiaCIImage)
 //            let outputImage = UIImage(ciImage: speckledImage)
