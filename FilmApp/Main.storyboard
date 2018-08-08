@@ -26,7 +26,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="36"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <state key="normal" title="Camera">
-                                            <color key="titleColor" red="0.98823529409999999" green="0.6705882353" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="cameraUpload:" destination="BG7-BA-r8I" eventType="touchUpInside" id="iCx-5b-3gA"/>
@@ -39,7 +39,7 @@
                                         <rect key="frame" x="0.0" y="394" width="240" height="36"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <state key="normal" title="To Library">
-                                            <color key="titleColor" red="0.98823529409999999" green="0.6705882353" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="savebutton:" destination="BG7-BA-r8I" eventType="touchUpInside" id="xJ7-RI-va7"/>
@@ -48,7 +48,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.99133156850239612" blue="0.90474291472378621" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.98823529409999999" green="0.6705882353" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="2Dj-tN-qSU"/>
                     </view>
                     <navigationItem key="navigationItem" id="hq7-S0-fn9"/>
@@ -71,24 +71,26 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EUM-b2-QAe">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.76201087339999996" blue="0.36118142310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5TN-5b-KBl">
                                     <size key="itemSize" width="153" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="22" minY="34" maxX="22" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="22" minY="15" maxX="22" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewCell" id="6Oz-uG-lIP" customClass="CollectionViewCell" customModule="FilmApp" customModuleProvider="target">
-                                        <rect key="frame" x="22" y="34" width="153" height="128"/>
+                                        <rect key="frame" x="22" y="15" width="153" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="153" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RPz-Et-tIH">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RPz-Et-tIH">
                                                     <rect key="frame" x="0.0" y="0.0" width="153" height="100"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="100" id="2ak-Oe-iah"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="129-vd-AGL">
                                                     <rect key="frame" x="-1" y="107" width="154" height="21"/>
@@ -96,7 +98,7 @@
                                                         <constraint firstAttribute="width" constant="154" id="HGh-PY-QPZ"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R7U-Ad-Tef">
@@ -126,10 +128,13 @@
                                             </subviews>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="RPz-Et-tIH" firstAttribute="top" secondItem="6Oz-uG-lIP" secondAttribute="top" id="2Op-eR-gIp"/>
                                             <constraint firstItem="R7U-Ad-Tef" firstAttribute="leading" secondItem="6Oz-uG-lIP" secondAttribute="leading" constant="16" id="DDl-wn-rAC"/>
                                             <constraint firstItem="R7U-Ad-Tef" firstAttribute="top" secondItem="6Oz-uG-lIP" secondAttribute="top" constant="8" id="O4q-Wi-n3v"/>
+                                            <constraint firstAttribute="trailing" secondItem="RPz-Et-tIH" secondAttribute="trailing" id="Tsy-3u-y0v"/>
                                             <constraint firstAttribute="bottom" secondItem="129-vd-AGL" secondAttribute="bottom" id="dCt-Qa-0x2"/>
                                             <constraint firstAttribute="trailing" secondItem="129-vd-AGL" secondAttribute="trailing" id="fI1-Zm-gir"/>
+                                            <constraint firstItem="RPz-Et-tIH" firstAttribute="leading" secondItem="6Oz-uG-lIP" secondAttribute="leading" id="tNl-z1-MUe"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="deleteButtonBackgroundView" destination="R7U-Ad-Tef" id="lkz-QK-zsk"/>
@@ -140,7 +145,7 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.99607843139999996" green="1" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.98823529409999999" green="0.76201087344132623" blue="0.36118142306577827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.98823529409999999" green="0.6705882353" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="I0q-k3-3cd" firstAttribute="bottom" secondItem="EUM-b2-QAe" secondAttribute="bottom" id="1Qe-tj-s19"/>
@@ -174,7 +179,6 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqS-GD-XW5">
                                         <rect key="frame" x="162.5" y="0.0" width="52" height="24"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kxb-co-D0d">
@@ -187,7 +191,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="62" height="36"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <state key="normal" title="Delete">
-                                                    <color key="titleColor" red="0.98823529409999999" green="0.6705882353" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="deletePhotoButton:" destination="B9p-qs-ISR" eventType="touchUpInside" id="IcZ-0w-xR2"/>
@@ -197,7 +201,7 @@
                                                 <rect key="frame" x="250" y="0.0" width="47" height="36"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <state key="normal" title="Save">
-                                                    <color key="titleColor" red="0.98823529409999999" green="0.6705882353" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="savePhotoButton:" destination="B9p-qs-ISR" eventType="touchUpInside" id="N9o-rY-h6R"/>
@@ -208,7 +212,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.99607843139999996" green="1" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.86754882560332569" blue="0.5691407447512552" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="SuB-lv-aPp"/>
                     </view>
                     <connections>
