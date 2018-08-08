@@ -153,8 +153,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             
             let outputImage = UIImage(ciImage: borderedImage)
 
- 
-  
             
 //            let outputImage = UIImage(ciImage: sepiaCIImage)
 //            let outputImage = UIImage(ciImage: speckledImage)
@@ -164,17 +162,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
 //            }
         
             let imageData = finalImage.png(size: uiImageFixedOrientation.size)!
-            
             newImageObject.image = UIImage(data: imageData)!
             newImageObject.date = Date()
-//          cameraView.image = UIImage(data: newImageObject.image!)
             
             print(newImageObject.image)
             print(newImageObject.date)
-            
             print("Output Image: \(outputImage)")
+            
             cameraView.image = outputImage
             CoreDataHelper.saveImage()
+            
         } else  {
             //error
         }
