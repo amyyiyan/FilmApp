@@ -51,6 +51,10 @@ class PhotoGalleryCollectionViewController: UIViewController, UICollectionViewDe
 //        collectionView.reloadData()
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imageObjects.count
     }

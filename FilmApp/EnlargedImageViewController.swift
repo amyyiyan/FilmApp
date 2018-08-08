@@ -25,6 +25,10 @@ class EnlargedImageViewController: UIViewController {
         datelabel.text = date.convertToFullString()
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     @IBAction func savePhotoButton(_ sender: Any) {
         let imageData = UIImagePNGRepresentation(enlargedimageView.image!)
         let compressedImage = UIImage(data: imageData!)
