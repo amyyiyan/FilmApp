@@ -144,7 +144,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             //border stuff
             let frames: [UIImage] = [ #imageLiteral(resourceName: "border-2"), #imageLiteral(resourceName: "border-3"), #imageLiteral(resourceName: "border-4"), #imageLiteral(resourceName: "border-5"), #imageLiteral(resourceName: "border-6"), #imageLiteral(resourceName: "border-7"), #imageLiteral(resourceName: "border-8"), #imageLiteral(resourceName: "border-9"), #imageLiteral(resourceName: "border-10")]
             let randomInt = Int(arc4random_uniform(UInt32(frames.count)))
-            let randomlyPickedFrame = frames[randomInt]
+            var randomlyPickedFrame = frames[randomInt]
+            randomlyPickedFrame = randomlyPickedFrame.resize(size: uiImageFixedOrientation.size)
+            
             
             guard let borderedCIImage = CIImage(image: randomlyPickedFrame) else {
                 return
@@ -152,26 +154,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
             let borderedImage = borderedCIImage.composited(over: finalImage)
             let outputImage = UIImage(ciImage: borderedImage)
-            
-            //let rect = AVMakeRectWithAspectRatioInsideRect(image.size, imageView.bounds)
-
-            
-            
-
-//            let image = CIImage(contentsOfURL: self.URL)
-//
-//            let filter = CIFilter(name: "CILanczosScaleTransform")!
-//            filter.setValue(image, forKey: "inputImage")
-//            filter.setValue(0.5, forKey: "inputScale")
-//            filter.setValue(1.0, forKey: "inputAspectRatio")
-//            let outputImage = filter.value(forKey: "outputImage") as! CIImage
-//
-//            let context = CIContext(options: [kCIContextUseSoftwareRenderer: false])
-//            let scaledImage = UIImage(CGImage: self.context.createCGImage(outputImage, fromRect: outputImage.extent()))
-            
-            
-            
-            
+          
             
             
 //            let outputImage = UIImage(ciImage: sepiaCIImage)
@@ -251,6 +234,14 @@ extension UIImage {
     }
     var png: Data? {
         return UIImagePNGRepresentation(self)
+    }
+    
+    func resize(size: CGSize) -> UIImage {
+        UIGraphicsBeginImageContext(size)
+        self.draw(in: CGRect(origin: .zero, size: size))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!
     }
 }
 

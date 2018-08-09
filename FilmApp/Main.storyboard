@@ -177,23 +177,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="equalCentering" alignment="center" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="Chi-RB-l98">
-                                <rect key="frame" x="0.0" y="84" width="375" height="555"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="Chi-RB-l98">
+                                <rect key="frame" x="0.0" y="88" width="375" height="555"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqS-GD-XW5">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqS-GD-XW5">
                                         <rect key="frame" x="161.5" y="0.0" width="52" height="24"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kxb-co-D0d">
-                                        <rect key="frame" x="0.0" y="66" width="375" height="417"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kxb-co-D0d">
+                                        <rect key="frame" x="0.0" y="60" width="375" height="409"/>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleAspectFit" ambiguous="YES" spacing="188" translatesAutoresizingMaskIntoConstraints="NO" id="LpI-Qs-8xl">
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" spacing="188" translatesAutoresizingMaskIntoConstraints="NO" id="LpI-Qs-8xl">
                                         <rect key="frame" x="39" y="519" width="297" height="36"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1Q-Xb-uCh">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1Q-Xb-uCh">
                                                 <rect key="frame" x="0.0" y="0.0" width="62" height="36"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <state key="normal" title="Delete">
@@ -203,7 +202,7 @@
                                                     <action selector="deletePhotoButton:" destination="B9p-qs-ISR" eventType="touchUpInside" id="IcZ-0w-xR2"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qiQ-DP-1rk">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qiQ-DP-1rk">
                                                 <rect key="frame" x="250" y="0.0" width="47" height="36"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <state key="normal" title="Save">
@@ -216,9 +215,19 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="LpI-Qs-8xl" firstAttribute="top" secondItem="Kxb-co-D0d" secondAttribute="bottom" constant="50" id="1xF-O4-Wls"/>
+                                    <constraint firstItem="Kxb-co-D0d" firstAttribute="leading" secondItem="Chi-RB-l98" secondAttribute="leading" id="Pjn-pH-snz"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.98823529409999999" green="0.684030154634097" blue="0.023276749250665141" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Chi-RB-l98" firstAttribute="top" secondItem="SuB-lv-aPp" secondAttribute="top" constant="24" id="0CK-zs-hdM"/>
+                            <constraint firstItem="Chi-RB-l98" firstAttribute="leading" secondItem="SuB-lv-aPp" secondAttribute="leading" id="Zas-7B-IGP"/>
+                            <constraint firstItem="Chi-RB-l98" firstAttribute="trailing" secondItem="SuB-lv-aPp" secondAttribute="trailing" id="fHK-GG-Ki6"/>
+                            <constraint firstItem="SuB-lv-aPp" firstAttribute="bottom" secondItem="Chi-RB-l98" secondAttribute="bottom" constant="24" id="qIh-ly-11V"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="SuB-lv-aPp"/>
                     </view>
                     <connections>
