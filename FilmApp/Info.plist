@@ -23,7 +23,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Your photos are safe.</string>
+	<string>Enable camera access so the filters and film borders can be placed over your photos.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This allows you to save your photos to camera roll.</string>
 	<key>UILaunchStoryboardName</key>
